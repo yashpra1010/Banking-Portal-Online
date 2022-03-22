@@ -78,3 +78,4 @@ hr {
 		</form>
 </body>
 </html>
+<!--This project is made by Yash Prajapati (github/@yashpra1010)-->

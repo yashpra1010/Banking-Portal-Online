@@ -47,7 +47,7 @@
 	
 	//SQL Queries
 	String selectQ = "select username,balance from `prac12`.`transaction`";
-	String UpdateQ = "UPDATE `transaction` SET deposit = ?, balance = ? WHERE username=?;";
+	String UpdateQ = "UPDATE `transaction` SET deposit = ?, balance = ?,withdraw=0 WHERE username=?;";
 	
 	PreparedStatement inQ = con.prepareStatement(UpdateQ);
 	Statement stmt = con.createStatement();
@@ -57,15 +57,17 @@
 	
 	if(user_f.equals(user_session) && pass_f.equals(pass_session)){
 		while(rs.next()){
-			int old_bal = rs.getInt(2);	
-			int new_bal = old_bal + depo;
+			if(rs.getString(1).equals(user_session)){
+				int old_bal = rs.getInt(2);	
+				int new_bal = old_bal + depo;
 			
-			inQ.setInt(1,depo);
-			inQ.setInt(2,new_bal);
-			inQ.setString(3,user_f);
+				inQ.setInt(1,depo);
+				inQ.setInt(2,new_bal);
+				inQ.setString(3,user_f);
 			
-			inQ.executeUpdate();
-			break;
+				inQ.executeUpdate();
+				break;
+			}
 		}
 	}
 	response.sendRedirect("dashboard.jsp");
@@ -82,3 +84,4 @@
 </script>
 </body>
 </html>
+<!--This project is made by Yash Prajapati (github/@yashpra1010)-->
