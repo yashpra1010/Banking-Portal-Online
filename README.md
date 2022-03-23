@@ -1,7 +1,7 @@
 # Banking-Portal-Online
 # This project is made by Yash Prajapati (github/@yashpra1010)
 Banking Portal Online is a dynamic web project. Java EE + MySQL + JSP is used to create this project.
-It includes Login Authentication Modulue, CRUD operation on database (MySQL) module.
+It includes Login Authentication Module, CRUD operation on database (MySQL) module.
 
 Pre-requisites:-
 1) Eclipse Web Development IDE
