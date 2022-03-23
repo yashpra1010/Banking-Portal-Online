@@ -106,8 +106,8 @@ th {
 		out.println("<div class=\"lgt\"><b><h1><button id=\"logout\"class=\"btn\">Logout</button></h1></b></div>");
 		out.println("<div class=\"wthdw\"><b><h1><button id=\"withdraw\"class=\"btn\">Withdraw</button></h1></b></div>");
 		out.println("<div class=\"dpst\"><b><h1><button id=\"deposit\"class=\"btn\">Deposit</button></h1></b></div>");
+		
 		//creating table
-
 		out.println("<table class=\"statement_tb\">");
 		out.println("<tr>");
 		out.println("<th>Date</th>");
@@ -121,7 +121,10 @@ th {
 		ResultSet rs = stmt.executeQuery(selectQ);
 		int counter = 0;
 		while (rs.next()) {
-			if (rs.getString(2).equals(user_session)) {
+			if(user_session.equals("admin")){
+				response.sendRedirect("admin_dash.jsp");
+			}
+			else if (rs.getString(2).equals(user_session) && !"admin".equals(user_session)) {
 				counter=counter+1;
 				if (counter == 1) {
 					curr_bal = rs.getInt(6);
